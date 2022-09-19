@@ -1,0 +1,8 @@
+{% ckan_extends %} {# We are extending this file: templates->home->index.html #}
+{%- block htmltag -%} {# We are exteding this block defined in base.html. index.html extend page.html extend base.html #}
+    {# Create the vocabulary plaza_voc_countries if it does not exist  #}
+    {% if h.plaza_vocabulary_exists("plaza_voc_countries") == False %}
+        {% set created = h.plaza_create_countries_vocab() %}
+    {% endif %}
+    {{ super() }}
+{% endblock %}

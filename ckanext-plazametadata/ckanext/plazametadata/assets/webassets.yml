@@ -1,0 +1,14 @@
+# plazametadata-js:
+#   filter: rjsmin
+#   output: ckanext-plazametadata/%(version)s-plazametadata.js
+#   contents:
+#     - js/plazametadata.js
+#   extra:
+#     preload:
+#       - base/main
+
+# plazametadata-css:
+#   filter: cssrewrite
+#   output: ckanext-plazametadata/%(version)s-plazametadata.css
+#   contents:
+#     - css/plazametadata.css

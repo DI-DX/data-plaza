@@ -1,0 +1,21 @@
+{% ckan_extends %}
+{# We are extending this snippet (templates->package->snippets->package_metadata_fields.html) to have our new fields when the user creates or updates a dataset #}
+
+{% block package_metadata_fields %}
+    <div class="control-group">
+        <label class="control-label" for="plaza_country">{{ _("Country") }}</label>
+        <div class="controls">
+            <select id="plaza_country" name="plaza_country" data-module="autocomplete">
+                {% for country in h.plaza_get_countries() %}
+                    <option value="{{ country }}" {% if h.plaza_tags_to_string(data.plaza_country) == country %}selected="selected"{% endif %}>{{ country }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    {{ form.input('author', label=_('Creator'), id='field-author', placeholder=_('eg. Joe Bloggs'), value=data.author, error=errors.author, classes=['control-medium'], is_required=true) }}
+    {{ form.input('author_email', label=_('Creator Email'), id='field-author-email', placeholder=_('eg. j.bloggs@email.com'), value=data.author_email, error=errors.author_email, classes=['control-medium']) }}
+    {{ form.input('plaza_creator_orcid', label=_('Creator ORCID'), id='plaza_creator_orcid', placeholder=_('eg. 1234-1234-1234-1234'), value=data.plaza_creator_orcid, error=errors.plaza_creator_orcid, classes=['control-medium']) }}
+    {{ form.input('maintainer', label=_('Maintainer'), id='field-maintainer', placeholder=_('eg. Joe Bloggs'), value=data.maintainer, error=errors.maintainer, classes=['control-medium']) }}
+    {{ form.input('maintainer_email', label=_('Maintainer Email'), id='field-maintainer-email', placeholder=_('eg. j.bloggs@email.com'), value=data.maintainer_email, error=errors.maintainer_email, classes=['control-medium']) }}
+{% endblock %}

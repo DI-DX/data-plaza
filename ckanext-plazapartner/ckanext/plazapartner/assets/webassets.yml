@@ -1,0 +1,14 @@
+# plazapartner-js:
+#   filter: rjsmin
+#   output: ckanext-plazapartner/%(version)s-plazapartner.js
+#   contents:
+#     - js/plazapartner.js
+#   extra:
+#     preload:
+#       - base/main
+
+# plazapartner-css:
+#   filter: cssrewrite
+#   output: ckanext-plazapartner/%(version)s-plazapartner.css
+#   contents:
+#     - css/plazapartner.css
