@@ -1,0 +1,14 @@
+# plazacasestudy-js:
+#   filter: rjsmin
+#   output: ckanext-plazacasestudy/%(version)s-plazacasestudy.js
+#   contents:
+#     - js/plazacasestudy.js
+#   extra:
+#     preload:
+#       - base/main
+
+# plazacasestudy-css:
+#   filter: cssrewrite
+#   output: ckanext-plazacasestudy/%(version)s-plazacasestudy.css
+#   contents:
+#     - css/plazacasestudy.css

@@ -1,0 +1,12 @@
+{% ckan_extends %}
+
+{%- block custom_styles %}
+    {{ super() }}
+      <style>
+        .slug-preview {
+                visibility: hidden !important;
+            }
+      </style>
+{% endblock %}
+
+{% block page_heading %}{{ _('Edit Partner') }}{% endblock %}

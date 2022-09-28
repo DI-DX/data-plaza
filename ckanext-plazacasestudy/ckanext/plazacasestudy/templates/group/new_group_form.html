@@ -1,0 +1,9 @@
+{% ckan_extends %}
+
+{% block save_text %}
+  {%- if action == "edit" -%}
+    {{ _('Update case study') }}
+  {%- else -%}
+    {{ _('Create case study') }}
+  {%- endif -%}
+{% endblock %}
