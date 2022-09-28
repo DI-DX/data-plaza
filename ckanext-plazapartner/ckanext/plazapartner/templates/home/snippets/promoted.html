@@ -1,13 +1,21 @@
 {% ckan_extends %}
-
-{% block home_image %}
-    <section class="featured media-overlay hidden-xs">
-      <h2 class="media-heading">{% block home_image_caption %}{{ _("Addressing climate vulnerability in the dry corridor of Central America") }}{% endblock %}</h2>
-      {% block home_image_content %}
-        <a class="media-image" href="#">
-          {#  <img class="img-responsive" src="{{ h.url_for_static('/base/images/placeholder-420x220.png') }}" alt="Placeholder" width="420" height="220" />#}
-        <img class="img-responsive" src="http://localhost:5000/uploads/group/2022-09-28-131153.135613drought.jpg" alt="Placeholder" width="420" height="220" />
-        </a>
-      {% endblock %}
-    </section>
-  {% endblock %}
+{% set case_studies = h.get_featured_groups() %}
+{% if case_studies|length > 0 %}
+    {% set case_study = case_studies[0].display_name %}
+    {% set case_image = case_studies[0].image_display_url %}
+{% else %}
+    {% set case_study = "" %}
+    {% set case_image = "" %}
+{% endif %}
+{% if case_study != "" %}
+    {% block home_image %}
+        <section class="featured media-overlay hidden-xs">
+            <h2 class="media-heading">{% block home_image_caption %}{{ case_study }}{% endblock %}</h2>
+            {% block home_image_content %}
+                <a class="media-image" href="#">
+                    <img class="img-responsive" src="{{ case_image }}" alt="Placeholder" width="420" height="220" />
+                </a>
+            {% endblock %}
+        </section>
+    {% endblock %}
+{% endif %}
